@@ -1,7 +1,8 @@
 <h2>Stats</h2>
 
 <div class="wrapper" *ngFor="let stat of stats">
-  <div style="flex-grow: 5">{{stat.kind}}</div>
+  <div style="flex-grow: 5"><span (click)=updateStat(stat.kind)>
+    {{stat.kind}}</span></div>
   
 <ng-template [ngIf]="modDisp">
   <ng-template [ngIf]="stat.mod>0">

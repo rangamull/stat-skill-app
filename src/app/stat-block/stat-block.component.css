@@ -12,9 +12,8 @@
   flex: 1;
 }
 
-.wrapper div:hover {
+.wrapper span:hover {
   color: black;
-  background-color: #DDD;
   left: .1em;
 }
 
