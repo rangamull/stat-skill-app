@@ -16,8 +16,13 @@ export class StatBlockComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.stats= this.modManagement.statsObj;
+    this.getStats();
     console.log(this.stats)
+  }
+
+  getStats(){
+    this.modManagement.getStats()
+    .subscribe(val => this.stats = val);
   }
 
   toggMod(){

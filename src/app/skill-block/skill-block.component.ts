@@ -16,8 +16,13 @@ export class SkillBlockComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.skills= this.modManagement.skillsObj;
+    this.getSkills();
     console.log(this.skills)
+  }
+
+  getSkills(){
+    this.modManagement.getSkills()
+    .subscribe(val => this.skills = val);
   }
 
   toggle(skillName){

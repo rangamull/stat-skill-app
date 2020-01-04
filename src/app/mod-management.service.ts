@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-
+import { Observable, of } from 'rxjs';
 import { skills } from './skills';
 import { stats } from './stats';
+import { skill } from './skill';
+import { stat } from './stat';
 
 @Injectable({
   providedIn: 'root'
 }) 
 export class ModManagementService {
   
-  skills=skills;
-  stats=stats;
   constructor() {
 
    }
@@ -17,16 +17,14 @@ export class ModManagementService {
 todoProf = 3;
 //initilise data with data from import
   
-  get skillsObj(){
-    return skills;
+  getSkills(): Observable<skill[]>{
+    return of(skills);
   }
 
-  get statsObj(){
-    return stats;
+  getStats(): Observable<stat[]>{
+    return of(stats);
   }
 
-  
-  
    skillProfUpdate(index, nProfLvl){
     /* needs to change setting of skillMod 
     if newVal = 0 - 2*prof
