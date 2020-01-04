@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+}
+.wrapper > div {
+  font-size: 4vh;
+  color: white;
+  background: gray;
+  margin: .1em;
+  padding: .3em;
+  text-align: center;
+  border-radius: 3px;
+  flex: 1;
+}
+
+.statVal {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: none;
+  padding: auto;
+  width: 46px;
+  font-size:24px;
+  height: 36px;
+  border-radius: 12px;
+  -ms-grid-row-align:center;
+  -ms-grid-col-align:center;
+}

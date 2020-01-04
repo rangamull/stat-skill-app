@@ -1,0 +1,26 @@
+<h2>Skills</h2>
+
+ <div class="wrapper" *ngFor="let skill of skills">
+    <div style="flex-grow: 5">{{skill.kind}}</div>
+    <div style="flex-grow: 5">{{skill.name}}</div>
+    
+    <ng-template [ngIf]="skill.profLvl==1">
+      <div style="flex-grow: 1" > <button (click)="toggle(skill.name)"><i class="material-icons">done</i> </button></div>
+    </ng-template>
+   
+    <ng-template [ngIf]="skill.profLvl==2">
+      <div style="flex-grow: 1"><button (click)="toggle(skill.name)"> <i class="material-icons">done_all</i></button> </div>
+    </ng-template>
+
+    <ng-template [ngIf]="skill.profLvl==0">
+      <div style="flex-grow: 1"><button (click)="toggle(skill.name)"> <i class="material-icons">highlight_off</i></button> </div>
+    </ng-template>
+
+    <ng-template [ngIf]="skill.mod<=0">
+      <div style="flex-grow: 1">{{skill.mod}} </div>
+    </ng-template>
+
+    <ng-template [ngIf]="skill.mod>0">
+      <div style="flex-grow: 1">+{{skill.mod}}</div>
+    </ng-template>
+  </div>

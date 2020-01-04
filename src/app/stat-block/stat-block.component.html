@@ -1,0 +1,37 @@
+<h2>Stats</h2>
+
+<div class="wrapper" *ngFor="let stat of stats">
+  <div style="flex-grow: 5">{{stat.kind}}</div>
+  
+<ng-template [ngIf]="modDisp">
+  <ng-template [ngIf]="stat.mod>0">
+      <div><button title="Modifier" class="statButt" (click)=toggMod()>+{{stat.mod}}</button></div>
+  </ng-template>
+</ng-template>
+
+<ng-template [ngIf]="modDisp">
+  <ng-template [ngIf]="stat.mod<=0">
+      <div><button title="Modifier" class="statButt" (click)=toggMod()>{{stat.mod}}</button></div>
+  </ng-template>
+</ng-template>
+
+<ng-template [ngIf]="!modDisp">
+      <div><button title="Stat Value" class="statButt" (click)=toggMod()>{{stat.value}}</button></div>
+</ng-template>
+
+  <ng-template [ngIf]="stat.savProf==true">
+      <div> <i title="Saving Throw Proficiency" class="material-icons">done</i></div>
+  </ng-template>
+
+  <ng-template [ngIf]="stat.savProf==false">
+    <div><i title="Saving Throw Proficiency" class="material-icons">highlight_off</i></div>
+  </ng-template>
+
+  <ng-template [ngIf]="stat.savMod<=0">
+      <div title="Saving Throw Modifier" class="statButt">{{stat.savMod}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="stat.savMod>0">
+      <div title="Saving Throw Modifier" class="statButt">+{{stat.savMod}}</div>
+  </ng-template>
+</div>
