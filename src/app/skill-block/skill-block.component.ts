@@ -26,16 +26,6 @@ export class SkillBlockComponent implements OnInit {
   }
 
   toggle(skillName){
-    this.skills.forEach(function(obj){
-      if(obj.name==skillName){
-        switch(obj.profLvl){
-          case 0: obj.profLvl++;
-          break;
-          case 1: obj.profLvl++;
-          break;
-          default: obj.profLvl=0;
-        }
-      }
-    })
+    this.modManagement.toggleSkillProf(skillName);
   }
 }

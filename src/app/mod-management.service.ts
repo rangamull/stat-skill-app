@@ -13,7 +13,7 @@ export class ModManagementService {
   constructor() {
 
    }
-   
+
 todoProf = 3;
 //initilise data with data from import
   
@@ -23,6 +23,20 @@ todoProf = 3;
 
   getStats(): Observable<stat[]>{
     return of(stats);
+  }
+
+  toggleSkillProf(skillName){
+    skills.forEach(function(obj){
+      if(obj.name==skillName){
+        switch(obj.profLvl){
+          case 0: obj.profLvl++;
+          break;
+          case 1: obj.profLvl++;
+          break;
+          default: obj.profLvl=0;
+        }
+      }
+    })
   }
 
    skillProfUpdate(index, nProfLvl){

@@ -2,7 +2,7 @@
   display: flex;
 }
 .wrapper > div {
-  font-size: 4vh;
+  font-size: 24px;
   color: white;
   background: gray;
   margin: .1em;

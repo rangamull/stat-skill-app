@@ -1,7 +1,7 @@
 <h2>Skills</h2>
 
  <div class="wrapper" *ngFor="let skill of skills">
-    <div style="flex-grow: 5">{{skill.kind}}</div>
+    <div style="flex-grow: 4">{{skill.kind}}</div>
     <div style="flex-grow: 5">{{skill.name}}</div>
     
     <ng-template [ngIf]="skill.profLvl==1">
