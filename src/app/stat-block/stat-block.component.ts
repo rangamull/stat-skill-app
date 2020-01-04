@@ -17,7 +17,6 @@ export class StatBlockComponent implements OnInit {
 
   ngOnInit() {
     this.getStats();
-    console.log(this.stats)
   }
 
   getStats(){

@@ -17,7 +17,6 @@ export class SkillBlockComponent implements OnInit {
 
   ngOnInit() {
     this.getSkills();
-    console.log(this.skills)
   }
 
   getSkills(){

@@ -12,6 +12,12 @@
   flex: 1;
 }
 
+.wrapper div:hover {
+  color: black;
+  background-color: #DDD;
+  left: .1em;
+}
+
 .statVal {
   background-color: #FFFFFF;
   color: #000000;
