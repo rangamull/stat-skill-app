@@ -30,10 +30,9 @@ export class StatBlockComponent implements OnInit {
     let dialogRef = this.dialog.open(StatDialogComponent);
 
     dialogRef.afterClosed().subscribe(val => {
-    console.log(`Dialog result: ${val}`); // Pizza!
-
-    /*todo modManagement to deal with updates*/
-
+      if(val){
+        this.modManagement.statUpdate(stat,val);
+      }
   });
 
   }

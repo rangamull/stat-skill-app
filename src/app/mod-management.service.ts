@@ -25,6 +25,15 @@ todoProf = 3;
     return of(stats);
   }
 
+  statUpdate(kind, newVal){
+    stats.forEach(function(obj){
+      if(obj.kind==kind){
+        obj.value=newVal;
+        obj.mod = Math.round((newVal-10)/2);
+      }
+    });  
+  }
+
   toggleSkillProf(skillName){
     skills.forEach(function(obj){
       if(obj.name==skillName){
@@ -39,28 +48,6 @@ todoProf = 3;
     })
   }
 
-   skillProfUpdate(index, nProfLvl){
-    /* needs to change setting of skillMod 
-    if newVal = 0 - 2*prof
-    if newVal = 1 + prof 
-    if newVal = 2 + prof
-    */
-    this.skills.forEach(function(obj){
-      if(obj.name==index){
-        switch(nProfLvl){
-          case 0: obj.mod = obj.mod - (2*this.todoProf);
-          break;
-          case 1: obj.mod = obj.mod + this.todoProf;
-          break;
-          case 2: obj.mod = obj.mod + this.todoProf;
-          break;
-          default: obj.profLvl=0;
-        }
-      }
-    })
-
-  }
-
   savProfUpdate(index, nSavMod){
     /* needs to change setting of savProf and savMod
     if newVal = true + prof
@@ -68,7 +55,5 @@ todoProf = 3;
     */
   }
 
-  statUpdate(index, nStatVal){
-    
-  }
+  
 }

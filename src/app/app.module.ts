@@ -12,9 +12,10 @@ import { StatBlockComponent } from './stat-block/stat-block.component';
 import { ModManagementService } from './mod-management.service';
 import { StatDialogComponent } from './stat-dialog/stat-dialog.component';
 import { MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, BrowserAnimationsModule, MatDialogModule, MatFormFieldModule ],
+  imports:      [ BrowserModule, FormsModule, BrowserAnimationsModule, MatDialogModule, MatFormFieldModule, MatInputModule],
   declarations: [ AppComponent, HelloComponent, SkillBlockComponent, StatBlockComponent, StatDialogComponent ],
   entryComponents: [StatDialogComponent],
   bootstrap:    [ AppComponent ],

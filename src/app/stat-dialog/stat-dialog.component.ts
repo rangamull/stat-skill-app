@@ -12,8 +12,13 @@ export class StatDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<StatDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data) {}
   
+  statVal: number;
 
   ngOnInit() {
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }
