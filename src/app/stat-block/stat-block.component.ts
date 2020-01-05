@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ModManagementService } from '../mod-management.service';
+import { StatDialogComponent } from '../stat-dialog/stat-dialog.component';
 
 @Component({
   selector: 'app-stat-block',
@@ -11,7 +12,8 @@ export class StatBlockComponent implements OnInit {
   stats;
   modDisp = true;
   constructor(
-    private modManagement: ModManagementService
+    private modManagement: ModManagementService,
+    public dialog: MatDialog
   ) {
      }
 
@@ -22,6 +24,18 @@ export class StatBlockComponent implements OnInit {
   getStats(){
     this.modManagement.getStats()
     .subscribe(val => this.stats = val);
+  }
+
+  updateStat(stat){
+    let dialogRef = this.dialog.open(StatDialogComponent);
+
+    dialogRef.afterClosed().subscribe(val => {
+    console.log(`Dialog result: ${val}`); // Pizza!
+
+    /*todo modManagement to deal with updates*/
+
+  });
+
   }
 
   toggMod(){
