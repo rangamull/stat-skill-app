@@ -32,10 +32,9 @@ todoProf = 3;
       if(obj.kind==kind){
         obj.value=newVal;
         obj.mod = Math.floor((newVal-10)/2);
-
         //saving throw changes
         if(obj.savProf)
-          obj.savMod = obj.mod + 3;
+          obj.savMod = obj.mod + this.todoProf;
         obj.savMod = obj.mod;
       //call to update skill modifiers
       tempKind = kind;
