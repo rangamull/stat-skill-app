@@ -34,7 +34,10 @@ export class StatBlockComponent implements OnInit {
         this.modManagement.statUpdate(stat,val);
       }
   });
+  }
 
+  toggleProf(kind){
+    this.modManagement.toggleStatProf(kind);
   }
 
   toggMod(){

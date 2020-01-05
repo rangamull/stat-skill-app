@@ -1,7 +1,7 @@
 <h2>Stats</h2>
 
 <div class="wrapper" *ngFor="let stat of stats">
-  <div style="flex-grow: 5"><span (click)=updateStat(stat.kind)>
+  <div style="flex-grow: 5"><span (click)=updateStat(stat.kind) title="Click to Update">
     {{stat.kind}}</span></div>
   
 <ng-template [ngIf]="modDisp">
@@ -21,11 +21,11 @@
 </ng-template>
 
   <ng-template [ngIf]="stat.savProf==true">
-      <div> <i title="Saving Throw Proficiency" class="material-icons">done</i></div>
+      <div><button (click)="toggleProf(stat.kind)"> <i title="Saving Throw Proficiency" class="material-icons">done</i></button></div>
   </ng-template>
 
   <ng-template [ngIf]="stat.savProf==false">
-    <div><i title="Saving Throw Proficiency" class="material-icons">highlight_off</i></div>
+    <div><button (click)="toggleProf(stat.kind)"><i title="Saving Throw Proficiency" class="material-icons">highlight_off</i></button></div>
   </ng-template>
 
   <ng-template [ngIf]="stat.savMod<=0">

@@ -26,15 +26,28 @@ todoProf = 3;
   }
 
   statUpdate(kind, newVal){
+    let tempKind;
+    let tempMod;
     stats.forEach(function(obj){
       if(obj.kind==kind){
         obj.value=newVal;
-        obj.mod = Math.round((newVal-10)/2);
+        obj.mod = Math.floor((newVal-10)/2);
+
+        //saving throw changes
+        if(obj.savProf)
+          obj.savMod = obj.mod + 3;
+        obj.savMod = obj.mod;
+      //call to update skill modifiers
+      tempKind = kind;
+      tempMod = obj.mod;
       }
-    });  
+    }); 
+    this.skillModUpdate(tempKind,tempMod,false); 
   }
 
   toggleSkillProf(skillName){
+    let tempKind;
+    let tempMod;
     skills.forEach(function(obj){
       if(obj.name==skillName){
         switch(obj.profLvl){
@@ -44,9 +57,24 @@ todoProf = 3;
           break;
           default: obj.profLvl=0;
         }
+        tempKind = obj.kind;
+        tempMod = obj.mod;
       }
     })
+    this.skillModUpdate(tempKind, tempMod, true);
   }
+  toggleStatProf(kind: string){
+      stats.forEach(function(obj){
+        if(obj.kind==kind){
+          if(!obj.savProf)
+            obj.savMod = obj.mod + 3;
+          else
+            obj.savMod = obj.mod;
+        obj.savProf = !obj.savProf;
+        }
+      })
+    }
+  
 
   savProfUpdate(index, nSavMod){
     /* needs to change setting of savProf and savMod
@@ -55,5 +83,28 @@ todoProf = 3;
     */
   }
 
+    skillModUpdate(kind: string, newMod: number, profToggle: boolean){
+    let tempMod = newMod;
+    if(profToggle){
+      stats.forEach(function(obj){
+        if(obj.kind==kind)
+          tempMod = obj.mod;
+      })
+    }
+
+    skills.forEach(function(obj){
+      if(obj.kind==kind){
+        switch(obj.profLvl){
+          case 0: obj.mod = tempMod;
+          break;
+          case 1: obj.mod = tempMod + 3;
+          break;
+          case 2: obj.mod = tempMod + 6;
+          break;
+          default: obj.profLvl=0;
+        }
+      }
+    })
+  }
   
 }
